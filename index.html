@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Активний випускний для школярів в Івано-Франківську: лазертаг, командні місії, інструктор, фото, зона відпочинку та готова програма для класу."
+    />
+    <meta property="og:title" content="Лазертаг для шкільного випускного в Івано-Франківську | LASERTAG" />
+    <meta
+      property="og:description"
+      content="Випускний без нудного банкету: лазертаг, командні місії, інструктор, фото та зона відпочинку для класу."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/optimized/hero-group.webp" />
+    <meta name="theme-color" content="#073f32" />
+    <title>Лазертаг для шкільного випускного в Івано-Франківську | LASERTAG</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.addEventListener("load", function () {
+        if (!window.location.hash) return;
+        window.setTimeout(function () {
+          var target = document.querySelector(window.location.hash);
+          if (target) target.scrollIntoView();
+        }, 600);
+      });
+    </script>
+  </body>
+</html>

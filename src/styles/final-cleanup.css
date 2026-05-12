@@ -1,0 +1,712 @@
+/* Final cleanup layer: overrides earlier experimental poster styles without adding new decoration. */
+.hero-title-skew {
+  font-size: clamp(4.8rem, 7.65vw, 7.75rem);
+  line-height: 0.86;
+  max-width: 700px;
+  margin-top: 30px;
+}
+
+.hero-manifesto {
+  max-width: 390px;
+}
+
+.hero-photo-collage .hero-small-photo--top,
+.hero-photo-collage .hero-video-polaroid,
+.hero-photo-collage .hero-hand-arrow {
+  display: none !important;
+}
+
+.hero-photo-brush::before {
+  clip-path: polygon(0 38%, 7% 21%, 21% 18%, 34% 10%, 48% 16%, 63% 2%, 85% 8%, 100% 19%, 94% 50%, 100% 72%, 79% 84%, 62% 80%, 43% 96%, 21% 100%, 2% 84%);
+}
+
+.hero-main-photo {
+  transform: rotate(-2deg);
+}
+
+.hero-player-cutout {
+  right: 96px !important;
+  top: 90px !important;
+  width: 258px !important;
+  opacity: 1 !important;
+}
+
+.hero-small-photo--bottom {
+  left: 28px !important;
+  bottom: 60px !important;
+  width: 154px !important;
+  height: 118px !important;
+  z-index: 8;
+}
+
+.hero-paper-note {
+  right: 34px !important;
+  bottom: 74px !important;
+  width: 262px !important;
+  max-width: 262px !important;
+  font-size: 1.12rem !important;
+}
+
+.route-section {
+  padding-block: clamp(72px, 8vw, 112px);
+  overflow: hidden;
+}
+
+.route-layout {
+  grid-template-columns: minmax(250px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(34px, 5vw, 70px);
+  align-items: center;
+}
+
+.route-section .route-board {
+  min-height: 410px !important;
+  padding: 28px 0 18px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.route-section .route-board::before,
+.route-section .route-board::after,
+.route-section .route-live-moment {
+  display: none !important;
+}
+
+.route-section .route-line {
+  top: 92px !important;
+  left: 0 !important;
+  width: 100% !important;
+  color: var(--yellow) !important;
+  opacity: 1 !important;
+}
+
+.route-section .route-steps {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: start !important;
+}
+
+.route-section .route-step-reveal {
+  width: auto !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.route-section .route-step-reveal:nth-child(1) { margin-top: 162px !important; }
+.route-section .route-step-reveal:nth-child(2) { margin-top: 58px !important; }
+.route-section .route-step-reveal:nth-child(3) { margin-top: 32px !important; }
+.route-section .route-step-reveal:nth-child(4) { margin-top: 132px !important; }
+.route-section .route-step-reveal:nth-child(5) { margin-top: 66px !important; }
+.route-section .route-step-reveal:nth-child(6) { margin-top: 118px !important; }
+
+.route-section .route-step,
+.route-section .route-step-reveal:last-child .route-step {
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.route-section .route-step svg {
+  width: 22px !important;
+  height: 22px !important;
+  margin-bottom: 8px !important;
+  color: var(--green) !important;
+}
+
+.route-section .route-number,
+.route-section .route-step-reveal:last-child .route-number {
+  width: 42px !important;
+  height: 42px !important;
+  margin-bottom: 10px !important;
+  border: 3px solid var(--ink) !important;
+  background: var(--yellow) !important;
+  color: var(--ink) !important;
+  box-shadow: 4px 5px 0 rgba(16, 20, 17, 0.2) !important;
+}
+
+.route-section .route-step h3 {
+  max-width: 138px !important;
+  margin-bottom: 6px !important;
+  color: var(--ink) !important;
+  font-size: 1.1rem !important;
+  line-height: 0.95 !important;
+}
+
+.route-section .route-step p {
+  max-width: 150px !important;
+  color: rgba(16, 20, 17, 0.72) !important;
+  font-size: 0.86rem !important;
+  line-height: 1.25 !important;
+}
+
+.quote-band__grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.72fr) minmax(220px, 0.54fr);
+  gap: clamp(28px, 4vw, 54px);
+  align-items: center;
+}
+
+.quote-copy p {
+  font-size: clamp(2rem, 3.8vw, 4.1rem);
+}
+
+.quote-player {
+  transform: rotate(-3deg);
+}
+
+.quote-player .smart-image {
+  clip-path: polygon(4% 5%, 96% 0, 100% 88%, 10% 100%, 0 19%);
+}
+
+.territory-layout {
+  grid-template-columns: minmax(260px, 0.36fr) minmax(0, 1fr);
+  gap: clamp(34px, 5vw, 76px);
+}
+
+.territory-section .territory-collage {
+  min-height: 560px !important;
+}
+
+.territory-section .panorama {
+  inset: 0 32px 74px 16px !important;
+  transform: rotate(1.5deg) !important;
+}
+
+.territory-section .polaroid--1,
+.territory-section .polaroid--3,
+.territory-section .polaroid--4 {
+  display: none !important;
+}
+
+.territory-section .polaroid--2 {
+  top: auto !important;
+  left: 54% !important;
+  right: auto !important;
+  bottom: 0 !important;
+  transform: translateX(-50%) rotate(-2deg) !important;
+}
+
+.territory-section .polaroid {
+  width: 184px !important;
+  height: auto !important;
+  max-height: 178px !important;
+  padding: 12px 12px 16px !important;
+  opacity: 1 !important;
+}
+
+.territory-section .polaroid figure {
+  height: auto !important;
+}
+
+.territory-section .polaroid figure > div {
+  height: 126px !important;
+}
+
+.booking-sticker {
+  right: 8px;
+  max-width: min(280px, 35vw);
+}
+
+@media (max-width: 980px) {
+  .route-section .route-board {
+    min-height: auto !important;
+  }
+
+  .route-section .route-line {
+    display: none !important;
+  }
+
+  .route-section .route-steps {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .route-section .route-step-reveal,
+  .route-section .route-step-reveal:nth-child(n),
+  .route-section .route-step-reveal:last-child {
+    width: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .route-section .route-step {
+    display: grid !important;
+    grid-template-columns: 48px 24px 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+    padding-bottom: 16px !important;
+    border-bottom: 1px dashed rgba(16, 20, 17, 0.2) !important;
+  }
+
+  .route-section .route-step h3,
+  .route-section .route-step p {
+    grid-column: 3 !important;
+    max-width: none !important;
+  }
+
+  .route-section .route-step svg {
+    margin-top: 9px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title-skew {
+    font-size: clamp(3.8rem, 16vw, 4.55rem);
+    line-height: 0.88;
+  }
+
+  .hero-photo-collage {
+    height: 330px;
+    min-height: 330px;
+    margin-top: 24px;
+  }
+
+  .hero-main-photo {
+    top: 50px !important;
+    width: 94% !important;
+    height: 205px !important;
+  }
+
+  .hero-player-cutout {
+    right: 34px !important;
+    top: 62px !important;
+    width: 132px !important;
+  }
+
+  .hero-small-photo--bottom {
+    display: none !important;
+  }
+
+  .hero-paper-note {
+    right: 4px !important;
+    bottom: 18px !important;
+    width: 198px !important;
+    font-size: 0.84rem !important;
+  }
+
+  .territory-section .territory-collage {
+    min-height: 520px !important;
+  }
+
+  .territory-section .panorama {
+    inset: 0 0 160px 0 !important;
+  }
+
+  .territory-section .polaroid--1,
+  .territory-section .polaroid--2,
+  .territory-section .polaroid--3 {
+    position: absolute !important;
+    width: 138px !important;
+  }
+
+  .territory-section .polaroid--1 {
+    left: 0 !important;
+    bottom: 28px !important;
+  }
+
+  .territory-section .polaroid--2 {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 8px !important;
+    transform: translateX(-50%) rotate(2deg) !important;
+  }
+
+  .territory-section .polaroid--3 {
+    right: 0 !important;
+    top: auto !important;
+    bottom: 34px !important;
+  }
+}
+
+/* Final v3: stricter reference proportions and cleaner mobile. */
+.poster-header {
+  min-height: 70px !important;
+  padding-top: 18px !important;
+  padding-bottom: 4px !important;
+}
+
+.hero-poster {
+  min-height: 720px !important;
+  padding-top: 12px !important;
+}
+
+.hero-poster__grid {
+  min-height: 608px !important;
+}
+
+.hero-poster__copy {
+  width: 50.5% !important;
+}
+
+.hero-title-skew {
+  width: 640px !important;
+  max-width: 640px !important;
+  font-size: clamp(4.15rem, 6.45vw, 6.9rem) !important;
+  line-height: 0.88 !important;
+  letter-spacing: -0.052em !important;
+  transform: rotate(-3deg) skewX(-4deg) scaleX(0.86) !important;
+}
+
+.hero-title-skew > span {
+  display: block !important;
+  white-space: normal !important;
+}
+
+.hero-manifesto {
+  width: fit-content !important;
+  max-width: 360px !important;
+  padding: 12px 22px 14px !important;
+  font-size: clamp(1.22rem, 1.7vw, 1.48rem) !important;
+  line-height: 1.08 !important;
+}
+
+.hero-poster__subtitle {
+  max-width: 430px !important;
+}
+
+.hero-photo-collage {
+  right: 18px !important;
+  top: 58px !important;
+  width: 645px !important;
+  height: 500px !important;
+  min-height: 500px !important;
+}
+
+.hero-photo-brush {
+  right: 64px !important;
+  top: 4px !important;
+  width: 505px !important;
+  height: 150px !important;
+}
+
+.hero-main-photo {
+  right: 10px !important;
+  top: 62px !important;
+  width: 610px !important;
+  height: 350px !important;
+  transform: rotate(-2deg) !important;
+}
+
+.hero-player-cutout {
+  display: none !important;
+}
+
+.hero-small-photo--bottom {
+  left: 20px !important;
+  bottom: 46px !important;
+  width: 138px !important;
+  height: 104px !important;
+}
+
+.hero-paper-note {
+  right: 32px !important;
+  bottom: 58px !important;
+  width: 238px !important;
+  max-width: 238px !important;
+  padding: 18px 20px !important;
+  font-size: 1rem !important;
+}
+
+.hero-photo-collage::after {
+  right: 12px !important;
+  bottom: 20px !important;
+  width: 560px !important;
+  height: 144px !important;
+}
+
+.hero-photo-collage::before {
+  right: 46px !important;
+  bottom: 16px !important;
+  width: 512px !important;
+}
+
+.benefit-ribbon {
+  padding-block: 38px !important;
+}
+
+.benefit-ribbon .container {
+  gap: 42px !important;
+}
+
+.benefit-ribbon .benefits-label {
+  font-size: clamp(1.9rem, 2.8vw, 2.8rem) !important;
+  padding: 16px 18px !important;
+}
+
+.benefit-ribbon .benefit-item {
+  min-height: 118px !important;
+}
+
+.booking-sticker {
+  top: -76px !important;
+  right: 10px !important;
+  max-width: 238px !important;
+  font-size: 0.98rem !important;
+}
+
+@media (max-width: 980px) {
+  .hero-poster {
+    min-height: auto !important;
+  }
+
+  .hero-poster__copy {
+    width: 100% !important;
+  }
+
+  .hero-title-skew {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .poster-header {
+    min-height: 68px !important;
+    padding: 16px 14px 4px !important;
+  }
+
+  .hero-poster {
+    padding: 12px 14px 0 !important;
+  }
+
+  .hero-title-skew {
+    font-size: clamp(3.05rem, 13.2vw, 3.85rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.048em !important;
+    transform: rotate(-2deg) skewX(-3deg) scaleX(0.92) !important;
+  }
+
+  .hero-manifesto {
+    max-width: 280px !important;
+    padding: 10px 17px 12px !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-photo-collage {
+    height: 292px !important;
+    min-height: 292px !important;
+    margin-top: 18px !important;
+  }
+
+  .hero-photo-brush {
+    width: 88% !important;
+    height: 92px !important;
+    top: 0 !important;
+  }
+
+  .hero-main-photo {
+    top: 44px !important;
+    right: -2px !important;
+    width: 96% !important;
+    height: 190px !important;
+  }
+
+  .hero-paper-note {
+    right: 8px !important;
+    bottom: 8px !important;
+    width: 166px !important;
+    padding: 10px 12px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .hero-photo-collage::after {
+    width: 88% !important;
+    height: 98px !important;
+    bottom: 2px !important;
+  }
+
+  .benefit-ribbon {
+    padding-block: 36px !important;
+  }
+
+  .booking-sticker {
+    position: relative !important;
+    inset: auto !important;
+    max-width: 240px !important;
+    margin: 0 auto -8px !important;
+  }
+}
+
+/* Final v3 correction: tighten the first screen so it reads like the reference poster, not a tall web hero. */
+@media (min-width: 981px) {
+  .site-header.poster-header {
+    height: 64px !important;
+    min-height: 64px !important;
+    padding-top: 14px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .poster-header .brand__logo {
+    width: 196px !important;
+    height: 40px !important;
+  }
+
+  .poster-header .brand__city {
+    margin-top: 0 !important;
+    font-size: 0.88rem !important;
+  }
+
+  .poster-header .header-cta {
+    min-height: 48px !important;
+    padding-inline: 26px !important;
+  }
+
+  .hero-poster {
+    min-height: 592px !important;
+    padding-top: 4px !important;
+  }
+
+  .hero-poster__grid {
+    min-height: 560px !important;
+  }
+
+  .hero-poster__copy {
+    width: 52% !important;
+    padding-top: 18px !important;
+  }
+
+  .hero-kicker {
+    margin-bottom: 18px !important;
+  }
+
+  .hero-title-skew {
+    width: 780px !important;
+    max-width: 780px !important;
+    margin-top: 0 !important;
+    font-size: clamp(4.3rem, 5.75vw, 5.85rem) !important;
+    line-height: 0.87 !important;
+    letter-spacing: -0.052em !important;
+    transform: rotate(-3deg) skewX(-4deg) scaleX(0.78) !important;
+    transform-origin: left center !important;
+  }
+
+  .hero-title-skew > span {
+    white-space: nowrap !important;
+  }
+
+  .hero-manifesto {
+    margin-top: 18px !important;
+    max-width: 350px !important;
+    padding: 10px 20px 12px !important;
+    font-size: clamp(1.12rem, 1.55vw, 1.38rem) !important;
+  }
+
+  .hero-poster__subtitle {
+    margin-top: 24px !important;
+    max-width: 405px !important;
+    font-size: 1.04rem !important;
+    line-height: 1.38 !important;
+  }
+
+  .hero-poster__actions {
+    margin-top: 22px !important;
+  }
+
+  .hero-poster__actions .button {
+    min-height: 48px !important;
+    padding-inline: 24px !important;
+  }
+
+  .hero-poster__proof--desktop {
+    width: 420px !important;
+    margin-top: 18px !important;
+    gap: 22px !important;
+  }
+
+  .hero-poster__proof--desktop li {
+    font-size: 0.76rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-poster__proof--desktop svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .hero-photo-collage {
+    right: -2px !important;
+    top: 28px !important;
+    width: 675px !important;
+    height: 448px !important;
+    min-height: 448px !important;
+  }
+
+  .hero-photo-brush {
+    right: 44px !important;
+    top: -2px !important;
+    width: 545px !important;
+    height: 128px !important;
+  }
+
+  .hero-main-photo {
+    right: 8px !important;
+    top: 58px !important;
+    width: 630px !important;
+    height: 318px !important;
+  }
+
+  .hero-photo-collage::after {
+    right: 8px !important;
+    bottom: 14px !important;
+    width: 596px !important;
+    height: 118px !important;
+  }
+
+  .hero-photo-collage::before {
+    right: 46px !important;
+    bottom: 8px !important;
+    width: 522px !important;
+    height: 36px !important;
+  }
+
+  .hero-small-photo--bottom {
+    left: 12px !important;
+    bottom: 44px !important;
+    width: 132px !important;
+    height: 94px !important;
+  }
+
+  .hero-paper-note {
+    right: 30px !important;
+    bottom: 42px !important;
+    width: 228px !important;
+    max-width: 228px !important;
+    padding: 16px 18px !important;
+    font-size: 0.94rem !important;
+  }
+
+  .benefit-ribbon {
+    padding-block: 30px !important;
+    min-height: 206px !important;
+  }
+
+  .benefit-ribbon .container {
+    grid-template-columns: 240px 1fr !important;
+    gap: 34px !important;
+  }
+
+  .benefit-ribbon h2 {
+    font-size: clamp(1.85rem, 2.55vw, 2.45rem) !important;
+    padding: 15px 17px !important;
+  }
+
+  .benefit-ribbon .benefit-item {
+    min-height: 106px !important;
+    padding-inline: 18px !important;
+  }
+
+  .benefit-ribbon .benefit-item svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .benefit-ribbon .benefit-item span {
+    font-size: 0.86rem !important;
+    line-height: 1.25 !important;
+  }
+}
