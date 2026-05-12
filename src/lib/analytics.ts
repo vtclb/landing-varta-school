@@ -14,6 +14,10 @@ export function trackCTAClick(payload: AnalyticsPayload = {}) {
   logEvent("cta_click", payload);
 }
 
+export function trackPackageSelect(payload: AnalyticsPayload = {}) {
+  logEvent("package_select", payload);
+}
+
 export function trackVideoOpen(payload: AnalyticsPayload = {}) {
   logEvent("video_open", payload);
 }

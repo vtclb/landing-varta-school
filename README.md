@@ -113,9 +113,10 @@ npm run test:screenshots -- --project=desktop-chrome
 
 ## Before Production Launch
 
-- confirm real prices;
-- replace phone number;
-- add Telegram / CRM / email integration;
-- add Google Analytics / Meta Pixel IDs;
-- connect domain and hosting;
-- run Lighthouse against production preview or deployed URL.
+- Contacts: replace the placeholder phone `+380000000000` with the real number.
+- Messengers: add real Telegram, Viber, WhatsApp, Instagram and/or Facebook links where needed.
+- Prices: confirm actual `Standard`, `Top`, and `Maximum` package prices before launching ads.
+- Lead delivery: the form currently saves leads to `localStorage` under `varta_school_leads`; connect Telegram bot, Google Sheets, CRM, email, or webhook before paid traffic.
+- Analytics: wire `src/lib/analytics.ts` to GA4, Meta Pixel, and Google Ads conversions after IDs are available.
+- Domain: connect the production domain or keep GitHub Pages only for test deployment.
+- QA: run Lighthouse and browser checks against the deployed URL.
