@@ -1,7 +1,7 @@
-import { Camera, CheckCircle2, MapPinned, ShieldCheck, Sparkles, UsersRound } from "lucide-react";
+import { Camera, CheckCircle2, MapPinned, ShieldCheck, Sparkles, Target, UsersRound } from "lucide-react";
 import { audience, included } from "../data/content";
 
-const includeIcons = [ShieldCheck, UsersRound, Sparkles, CheckCircle2, Camera, MapPinned, Sparkles, CheckCircle2];
+const includeIcons = [ShieldCheck, UsersRound, Sparkles, Target, Target, CheckCircle2, MapPinned, Camera, Sparkles];
 
 export function ProgramDetails() {
   return (
@@ -10,12 +10,12 @@ export function ProgramDetails() {
         <div className="included-panel">
           <p className="eyebrow">Що входить</p>
           <h2 id="included-title">
-            За що платить
-            <span> клас</span>
+            Що входить
+            <span> у програму</span>
           </h2>
           <p>
-            Це не просто “побігати з обладнанням”. Ми збираємо активний сценарій:
-            від інструктажу до фіналу, фото і відпочинку після гри.
+            Тут зібрані елементи програми за пакетами. Частина активностей входить тільки у Top / Maximum,
+            тому під час заявки ми допоможемо підібрати формат без зайвих обіцянок.
           </p>
           <div className="included-list">
             {included.map((item, index) => {
@@ -42,8 +42,8 @@ export function ProgramDetails() {
             ))}
           </div>
           <p>
-            Якщо не впевнені, який формат обрати, залиште заявку — підкажемо програму
-            під вік, кількість дітей і бажану дату.
+            Якщо не впевнені, який пакет обрати, залиште заявку. Ми підкажемо програму під вік, кількість дітей,
+            бюджет і бажану дату.
           </p>
         </aside>
       </div>

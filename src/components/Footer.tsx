@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container site-footer__inner">
         <div>
           <strong>LASERTAG</strong>
-          <span>лазертаг в Івано-Франківську</span>
+          <span>лазертаг-випускний в Івано-Франківську</span>
         </div>
         <nav aria-label="Нижня навігація">
           {navItems.map((item) => (

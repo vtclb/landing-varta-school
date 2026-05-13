@@ -1,6 +1,6 @@
 # LASERTAG School Landing
 
-One-page advertising landing for school graduations and active school programs in Ivano-Frankivsk.
+One-page advertising landing for laser tag graduation programs for 5-11 classes in Ivano-Frankivsk.
 
 ## Local Run
 
@@ -14,12 +14,16 @@ The production build is created in `dist/`.
 
 ## GitHub Pages
 
-The project is prepared for GitHub Pages deployment through GitHub Actions.
-
-Repository target:
+Repository:
 
 ```txt
-landing-varta-school
+https://github.com/vtclb/landing-varta-school
+```
+
+GitHub Pages:
+
+```txt
+https://vtclb.github.io/landing-varta-school/
 ```
 
 For GitHub Pages builds, Vite uses:
@@ -38,18 +42,6 @@ The workflow file is:
 
 ```txt
 .github/workflows/deploy-pages.yml
-```
-
-After pushing to GitHub, open repository settings:
-
-```txt
-Settings -> Pages -> Build and deployment -> Source: GitHub Actions
-```
-
-Expected Pages URL format:
-
-```txt
-https://USERNAME.github.io/landing-varta-school/
 ```
 
 ## Content
@@ -81,15 +73,15 @@ localStorage key: varta_school_leads
 
 ## Prices
 
-Package prices are placeholders:
+Prices are centralized in `src/data/content.ts`.
 
 ```txt
-Standard — від ___ грн / учасник
-Top — від ___ грн / учасник
-Maximum — від ___ грн / учасник
+Стандарт — 450 грн / учасник
+Топ — 600 грн / учасник
+Максимум — 750 грн / учасник
 ```
 
-Confirm actual prices before launching ads.
+Confirm 450 / 600 / 750 грн before launching ads.
 
 ## Assets
 
@@ -115,8 +107,9 @@ npm run test:screenshots -- --project=desktop-chrome
 
 - Contacts: replace the placeholder phone `+380000000000` with the real number.
 - Messengers: add real Telegram, Viber, WhatsApp, Instagram and/or Facebook links where needed.
-- Prices: confirm actual `Standard`, `Top`, and `Maximum` package prices before launching ads.
+- Prices: confirm 450 / 600 / 750 грн for `Стандарт`, `Топ`, and `Максимум`.
 - Lead delivery: the form currently saves leads to `localStorage` under `varta_school_leads`; connect Telegram bot, Google Sheets, CRM, email, or webhook before paid traffic.
 - Analytics: wire `src/lib/analytics.ts` to GA4, Meta Pixel, and Google Ads conversions after IDs are available.
+- Ads: add Google Ads conversions if Google Ads traffic will be used.
 - Domain: connect the production domain or keep GitHub Pages only for test deployment.
 - QA: run Lighthouse and browser checks against the deployed URL.

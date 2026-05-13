@@ -15,13 +15,13 @@ export function FAQ() {
             <span> перед бронюванням</span>
           </h2>
           <p>
-            Коротко про вік, безпеку, тривалість, кількість дітей і зону відпочинку.
-            Деталі програми уточнимо після заявки.
+            Коротко про вік, безпеку, тривалість, кількість учасників, пакети та бронювання дати.
           </p>
         </div>
         <div className="faq-list">
           {faq.map((item, index) => {
             const active = open === index;
+            const panelId = `faq-answer-${index}`;
             return (
               <button
                 className={`faq-item ${active ? "faq-item--open" : ""}`}
@@ -29,12 +29,17 @@ export function FAQ() {
                 type="button"
                 onClick={() => setOpen(active ? -1 : index)}
                 aria-expanded={active}
+                aria-controls={panelId}
               >
                 <span className="faq-item__question">
                   {item.question}
                   <ChevronDown size={20} />
                 </span>
-                {active ? <span className="faq-item__answer">{item.answer}</span> : null}
+                {active ? (
+                  <span className="faq-item__answer" id={panelId}>
+                    {item.answer}
+                  </span>
+                ) : null}
               </button>
             );
           })}

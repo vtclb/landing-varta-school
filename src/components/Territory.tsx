@@ -15,7 +15,7 @@ export function Territory() {
     <section className="section territory-section" id="territory">
       <div className="container territory-layout">
         <div className="territory-copy">
-          <p className="eyebrow">Наша територія</p>
+          <p className="eyebrow">{territory.title}</p>
           <h2>{territory.headline}</h2>
           <p>{territory.text}</p>
           <ul className="territory-highlights">

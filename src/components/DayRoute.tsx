@@ -4,7 +4,7 @@ import { RouteLine } from "./decorative/RouteLine";
 import { HandArrow } from "./decorative/HandArrow";
 import { Reveal } from "./motion/Reveal";
 
-const icons = [UsersRound, ShieldCheck, Waves, Target, Camera, Flag];
+const icons = [UsersRound, ShieldCheck, Waves, Target, Target, Camera, Flag];
 
 export function DayRoute() {
   return (
@@ -13,11 +13,12 @@ export function DayRoute() {
         <div className="route-title-block">
           <p className="eyebrow">Як проходить програма</p>
           <h2>
-            <span>Що буде</span>
-            <mark>відбуватись</mark>
+            <span>Як проходить</span>
+            <mark>лазертаг-випускний</mark>
           </h2>
           <p className="route-subtitle">
-            Клас не просто грає — діти проходять сценарій, де кожен має свою роль у команді.
+            Клас проходить зрозумілий сценарій: від інструктажу і команд до лазертаг-гри, фіналу та відпочинку
+            відповідно до обраного пакета.
           </p>
           <HandArrow className="route-title-arrow" />
         </div>

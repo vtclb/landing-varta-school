@@ -11,10 +11,11 @@ import { StickyCTA } from "./components/StickyCTA";
 import { Territory } from "./components/Territory";
 import { Trust } from "./components/Trust";
 import { useEffect, useState } from "react";
+import type { PackageId } from "./data/content";
 import { trackScrollDepth } from "./lib/analytics";
 
 export default function App() {
-  const [selectedPackage, setSelectedPackage] = useState("Top");
+  const [selectedPackage, setSelectedPackage] = useState<PackageId>("top");
   const shotTarget =
     typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("shot") : null;
 

@@ -22,7 +22,7 @@ export function StickyCTA() {
         }
         update();
       },
-      { threshold: 0.08 },
+      { rootMargin: "0px 0px -18% 0px", threshold: 0.08 },
     );
     observer.observe(booking);
     observer.observe(hero);

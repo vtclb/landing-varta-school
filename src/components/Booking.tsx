@@ -1,39 +1,47 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { CalendarCheck, UsersRound } from "lucide-react";
-import { booking } from "../data/content";
+import { booking, packages } from "../data/content";
+import type { GraduationPackage, PackageId } from "../data/content";
 import { Reveal } from "./motion/Reveal";
 import { trackLeadSubmit } from "../lib/analytics";
+
+type StoredPackage = Pick<GraduationPackage, "id" | "name" | "price" | "duration" | "minParticipants">;
 
 type SchoolLead = {
   id: string;
   createdAt: string;
   name: string;
   phone: string;
-  school: string;
-  people: string;
+  schoolClass: string;
+  participants: string;
   date: string;
   comment: string;
-  selectedPackage: string;
+  selectedPackage: StoredPackage;
 };
 
 const initialForm = {
   name: "",
   phone: "",
-  school: "",
-  people: "",
+  schoolClass: "",
+  participants: "",
   date: "",
   comment: "",
 };
 
 type BookingProps = {
-  selectedPackage?: string;
+  selectedPackage?: PackageId;
 };
 
-export function Booking({ selectedPackage = "Top" }: BookingProps) {
+export function Booking({ selectedPackage = "top" }: BookingProps) {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof typeof initialForm, string>>>({});
   const [success, setSuccess] = useState(false);
+
+  const packageData = useMemo(
+    () => packages.find((item) => item.id === selectedPackage) ?? packages.find((item) => item.id === "top") ?? packages[0],
+    [selectedPackage],
+  );
 
   function updateField(field: keyof typeof initialForm, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -52,10 +60,18 @@ export function Booking({ selectedPackage = "Top" }: BookingProps) {
       return;
     }
 
+    const storedPackage: StoredPackage = {
+      id: packageData.id,
+      name: packageData.name,
+      price: packageData.price,
+      duration: packageData.duration,
+      minParticipants: packageData.minParticipants,
+    };
+
     const lead: SchoolLead = {
       id: crypto.randomUUID(),
       createdAt: new Date().toISOString(),
-      selectedPackage,
+      selectedPackage: storedPackage,
       ...form,
     };
 
@@ -63,7 +79,12 @@ export function Booking({ selectedPackage = "Top" }: BookingProps) {
     const nextLeads = [lead, ...stored];
     localStorage.setItem("varta_school_leads", JSON.stringify(nextLeads));
     if (import.meta.env.DEV) console.log("varta_school_lead", lead);
-    trackLeadSubmit({ source: "booking", people: form.people || undefined });
+    trackLeadSubmit({
+      source: "booking",
+      participants: form.participants || undefined,
+      packageId: storedPackage.id,
+      packagePrice: packageData.priceValue,
+    });
     setSuccess(true);
     setForm(initialForm);
   }
@@ -88,19 +109,21 @@ export function Booking({ selectedPackage = "Top" }: BookingProps) {
           </div>
           <div className="booking-mini">
             <UsersRound size={22} />
-            <span>програма під клас</span>
+            <span>пакет під клас</span>
             <CalendarCheck size={22} />
             <span>дата за домовленістю</span>
           </div>
         </div>
         <Reveal className="booking-form-wrap" delay={0.1} direction="right">
           <form className="booking-form" onSubmit={submit} noValidate>
-                <div className="booking-sticker">{booking.sticker}</div>
-                <div className="booking-package-summary" aria-live="polite">
-                  <span>Обраний пакет</span>
-                  <strong>{selectedPackage}</strong>
-                </div>
-                {success ? (
+            <div className="booking-sticker">{booking.sticker}</div>
+            <div className="booking-package-summary" aria-live="polite">
+              <span>Обраний пакет</span>
+              <strong>
+                {packageData.name} — {packageData.price} / {packageData.unit}
+              </strong>
+            </div>
+            {success ? (
               <div className="success-state" role="status">
                 <h3>Дякуємо!</h3>
                 <p>{booking.successWarm}</p>
@@ -143,8 +166,8 @@ export function Booking({ selectedPackage = "Top" }: BookingProps) {
                     <input
                       type="text"
                       placeholder={booking.fields.school}
-                      value={form.school}
-                      onChange={(event) => updateField("school", event.target.value)}
+                      value={form.schoolClass}
+                      onChange={(event) => updateField("schoolClass", event.target.value)}
                     />
                   </label>
                   <label>
@@ -152,8 +175,8 @@ export function Booking({ selectedPackage = "Top" }: BookingProps) {
                     <input
                       type="text"
                       placeholder={booking.fields.people}
-                      value={form.people}
-                      onChange={(event) => updateField("people", event.target.value)}
+                      value={form.participants}
+                      onChange={(event) => updateField("participants", event.target.value)}
                     />
                   </label>
                 </div>

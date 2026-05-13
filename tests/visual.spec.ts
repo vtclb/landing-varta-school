@@ -27,7 +27,7 @@ test.describe("landing screenshots", () => {
 
 test("booking form stores selected package lead in localStorage", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("Обрати пакет Maximum").click();
+  await page.getByLabel("Обрати пакет Максимум").click();
 
   const inputs = page.locator(".booking-form input");
   await inputs.nth(0).fill("Тест Клас");
@@ -42,11 +42,17 @@ test("booking form stores selected package lead in localStorage", async ({ page 
 
   const leads = await page.evaluate(() => JSON.parse(localStorage.getItem("varta_school_leads") || "[]"));
   expect(leads[0]).toMatchObject({
-    selectedPackage: "Maximum",
+    selectedPackage: {
+      id: "maximum",
+      name: "Максимум",
+      price: "750 грн",
+      duration: "~3 години",
+      minParticipants: "від 20 учасників",
+    },
     name: "Тест Клас",
     phone: "+380000000000",
-    school: "Ліцей 23, 9-Б",
-    people: "24",
+    schoolClass: "Ліцей 23, 9-Б",
+    participants: "24",
     date: "червень",
     comment: "Тестова заявка",
   });

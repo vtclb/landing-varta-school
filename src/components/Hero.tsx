@@ -21,7 +21,7 @@ export function Hero() {
   const brushY = useTransform(scrollYProgress, [0, 0.22], [0, -10]);
   const initial = reduceMotion ? false : "hidden";
   const animate = reduceMotion ? undefined : "visible";
-  const titleLines = ["Випускний,", "який клас", "запамʼятає"];
+  const titleLines = ["Лазертаг-", "випускний,", "який клас", "запамʼятає"];
 
   return (
     <section className="hero-poster hero-poster--clean paper-bg" id="top">
@@ -33,15 +33,15 @@ export function Hero() {
           </motion.p>
           <h1 className="hero-title-skew">
             {titleLines.map((line, index) => (
-              <motion.span key={line} variants={lineVariants} custom={index + 1}>
+              <motion.span key={`${line}-${index}`} variants={lineVariants} custom={index + 1}>
                 {line}
               </motion.span>
             ))}
           </h1>
-          <motion.p className="hero-poster__subtitle" variants={lineVariants} custom={4}>
+          <motion.p className="hero-poster__subtitle" variants={lineVariants} custom={5}>
             {hero.subtitle}
           </motion.p>
-          <motion.div className="hero-poster__actions" variants={lineVariants} custom={5}>
+          <motion.div className="hero-poster__actions" variants={lineVariants} custom={6}>
             <a className="button button--green" href="#booking" onClick={() => trackCTAClick({ place: "hero_primary" })}>
               {hero.primaryCta} <ArrowRight size={18} />
             </a>
@@ -49,7 +49,7 @@ export function Hero() {
               {hero.secondaryCta}
             </a>
           </motion.div>
-          <motion.ul className="hero-poster__proof hero-poster__proof--desktop" variants={lineVariants} custom={6}>
+          <motion.ul className="hero-poster__proof hero-poster__proof--desktop" variants={lineVariants} custom={7}>
             {hero.proof.map((item) => (
               <li key={item}>
                 <CheckCircle2 size={22} />
@@ -82,8 +82,8 @@ export function Hero() {
             />
           </div>
           <div className="hero-clean-photo__caption">
-            <strong>Живі емоції</strong>
-            <span>гра, команда і відпочинок після активної частини</span>
+            <strong>{hero.captionTitle}</strong>
+            <span>{hero.captionText}</span>
           </div>
         </motion.div>
 

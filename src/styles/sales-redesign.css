@@ -761,6 +761,168 @@ body::before {
   }
 }
 
+/* Packages update: commercial copy, selected package state, and mobile overflow guard. */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.price-card__label,
+.price-card__best {
+  color: rgba(16, 20, 17, 0.72);
+  margin: -6px 0 14px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.price-card__best {
+  margin: 12px 0 14px;
+  font-size: 0.96rem;
+}
+
+.price-card--selected {
+  transform: translateY(-6px) rotate(-0.6deg);
+}
+
+.price-card--selected .price-card__cta {
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.route-step:nth-child(7),
+.route-step-reveal:nth-child(7) .route-step {
+  background: var(--green);
+  color: var(--white);
+  border-radius: 0;
+  clip-path: polygon(0 5%, 100% 0, 97% 95%, 4% 100%);
+  padding: 14px;
+}
+
+.route-step:nth-child(7) h3,
+.route-step:nth-child(7) p,
+.route-step-reveal:nth-child(7) h3,
+.route-step-reveal:nth-child(7) p {
+  color: var(--white);
+}
+
+.route-step:nth-child(7) .route-number,
+.route-step-reveal:nth-child(7) .route-number {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.booking-package-summary strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 28px, 1220px);
+  }
+
+  .site-header {
+    width: min(100% - 24px, 1240px);
+  }
+
+  .hero-poster--clean .hero-title-skew {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: normal;
+  }
+
+  .hero-poster__actions,
+  .hero-poster__actions .button,
+  .hero-poster__actions .learn-link,
+  .price-card,
+  .booking-form,
+  .territory-video-link {
+    max-width: 100%;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .price-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .price-card--selected {
+    transform: none;
+  }
+
+  .route-section .route-board {
+    overflow: visible !important;
+  }
+
+  .route-section .route-steps {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .route-section .route-step-reveal,
+  .route-section .route-step-reveal:nth-child(n),
+  .route-section .route-step-reveal:last-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .route-section .route-step,
+  .route-section .route-step:nth-child(n),
+  .route-section .route-step-reveal:nth-child(n) .route-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
+  }
+
+  .territory-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .territory-video-link,
+  .territory-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sticky-cta {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: min(100% - 22px, 1220px);
+  }
+
+  .hero-poster--clean .hero-title-skew {
+    font-size: clamp(2.55rem, 11.6vw, 3.45rem) !important;
+  }
+
+  .hero-poster__subtitle,
+  .route-subtitle,
+  .section-heading p,
+  .territory-copy p,
+  .faq-intro p {
+    font-size: 0.98rem !important;
+  }
+
+  .booking-package-summary {
+    display: grid !important;
+    gap: 6px !important;
+  }
+}
+
 /* Fix v1: selected pricing + mobile layouts that do not pretend desktop collage can simply shrink. */
 .price-card--selected {
   outline: 4px solid var(--yellow);
@@ -1252,5 +1414,136 @@ body::before {
 
   .hero-clean-photo__caption strong {
     font-size: 1.55rem;
+  }
+}
+
+/* Final commercial update overrides. Keep this block last. */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.price-card__label,
+.price-card__best {
+  color: rgba(16, 20, 17, 0.72);
+  margin: -6px 0 14px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.price-card__best {
+  margin: 12px 0 14px;
+  font-size: 0.96rem;
+}
+
+.price-card--selected {
+  transform: translateY(-6px) rotate(-0.6deg);
+}
+
+.booking-package-summary strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (width <= 768px) {
+  .container {
+    width: min(100% - 28px, 1220px);
+  }
+
+  .site-header {
+    width: min(100% - 24px, 1240px);
+  }
+
+  .hero-poster--clean .hero-title-skew {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: normal;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .price-card,
+  .booking-form,
+  .hero-poster__actions,
+  .hero-poster__actions .button,
+  .hero-poster__actions .learn-link,
+  .territory-video-link {
+    max-width: 100%;
+  }
+
+  .price-card--selected {
+    transform: none;
+  }
+
+  .route-section .route-board {
+    overflow: visible !important;
+  }
+
+  .route-section .route-steps {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .route-section .route-step-reveal,
+  .route-section .route-step-reveal:nth-child(n),
+  .route-section .route-step-reveal:last-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .route-section .route-step,
+  .route-section .route-step:nth-child(n),
+  .route-section .route-step-reveal:nth-child(n) .route-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
+  }
+
+  .territory-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .territory-video-link,
+  .territory-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sticky-cta {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (width <= 430px) {
+  .container {
+    width: min(100% - 22px, 1220px);
+  }
+
+  .hero-poster--clean .hero-title-skew {
+    font-size: clamp(2.55rem, 11.6vw, 3.45rem) !important;
+  }
+
+  .hero-poster__subtitle,
+  .route-subtitle,
+  .section-heading p,
+  .territory-copy p,
+  .faq-intro p {
+    font-size: 0.98rem !important;
+  }
+
+  .booking-package-summary {
+    display: grid !important;
+    gap: 6px !important;
   }
 }

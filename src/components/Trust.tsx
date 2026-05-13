@@ -9,8 +9,8 @@ export function Trust() {
     <section className="quote-band" id="trust" aria-labelledby="trust-title">
       <div className="container quote-band__grid">
         <div className="quote-copy">
-          <p className="eyebrow">Безпека і довіра</p>
-          <h2 id="trust-title">Батькам і вчителям спокійно</h2>
+          <p className="eyebrow">Важливо</p>
+          <h2 id="trust-title">Важливо для батьків і вчителів</h2>
           <blockquote>
             <Quote size={42} />
             <p>{trust.quote}</p>
