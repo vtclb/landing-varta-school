@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
-import { CalendarCheck, UsersRound } from "lucide-react";
-import { booking, packages } from "../data/content";
-import type { GraduationPackage, PackageId } from "../data/content";
+import { CalendarCheck, MapPinned, UsersRound } from "lucide-react";
+import { booking, contacts, outgoingGames, packages } from "../data/content";
+import type { GraduationPackage, InterestId, PackageId } from "../data/content";
 import { Reveal } from "./motion/Reveal";
 import { trackLeadSubmit } from "../lib/analytics";
 
@@ -18,6 +18,7 @@ type SchoolLead = {
   date: string;
   comment: string;
   selectedPackage: StoredPackage;
+  selectedInterest?: InterestId;
 };
 
 const initialForm = {
@@ -31,9 +32,10 @@ const initialForm = {
 
 type BookingProps = {
   selectedPackage?: PackageId;
+  selectedInterest?: InterestId | null;
 };
 
-export function Booking({ selectedPackage = "top" }: BookingProps) {
+export function Booking({ selectedPackage = "top", selectedInterest = null }: BookingProps) {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof typeof initialForm, string>>>({});
   const [success, setSuccess] = useState(false);
@@ -72,6 +74,7 @@ export function Booking({ selectedPackage = "top" }: BookingProps) {
       id: crypto.randomUUID(),
       createdAt: new Date().toISOString(),
       selectedPackage: storedPackage,
+      selectedInterest: selectedInterest ?? undefined,
       ...form,
     };
 
@@ -84,6 +87,7 @@ export function Booking({ selectedPackage = "top" }: BookingProps) {
       participants: form.participants || undefined,
       packageId: storedPackage.id,
       packagePrice: packageData.priceValue,
+      interest: selectedInterest ?? undefined,
     });
     setSuccess(true);
     setForm(initialForm);
@@ -112,7 +116,12 @@ export function Booking({ selectedPackage = "top" }: BookingProps) {
             <span>пакет під клас</span>
             <CalendarCheck size={22} />
             <span>дата за домовленістю</span>
+            <MapPinned size={22} />
+            <span>локація або виїзний формат</span>
           </div>
+          <a className="booking-contact" href={contacts.phoneHref}>
+            {contacts.phone}
+          </a>
         </div>
         <Reveal className="booking-form-wrap" delay={0.1} direction="right">
           <form className="booking-form" onSubmit={submit} noValidate>
@@ -122,6 +131,12 @@ export function Booking({ selectedPackage = "top" }: BookingProps) {
               <strong>
                 {packageData.name} — {packageData.price} / {packageData.unit}
               </strong>
+              {selectedInterest === outgoingGames.id ? (
+                <>
+                  <span>Додатково</span>
+                  <strong>{outgoingGames.interestLabel}</strong>
+                </>
+              ) : null}
             </div>
             {success ? (
               <div className="success-state" role="status">
@@ -192,7 +207,7 @@ export function Booking({ selectedPackage = "top" }: BookingProps) {
                 <label>
                   <span>{booking.fields.comment}</span>
                   <textarea
-                    placeholder={booking.fields.comment}
+                    placeholder={selectedInterest === outgoingGames.id ? "Напишіть, де плануєте виїзну гру" : booking.fields.comment}
                     value={form.comment}
                     onChange={(event) => updateField("comment", event.target.value)}
                   />

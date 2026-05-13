@@ -29,9 +29,14 @@ export function Header() {
           </a>
         ))}
       </nav>
-      <a className="header-cta" href="#booking" onClick={() => trackCTAClick({ place: "header" })}>
-        Забронювати дату →
-      </a>
+      <div className="header-actions">
+        <a className="header-phone" href={contacts.phoneHref}>
+          {contacts.phone}
+        </a>
+        <a className="header-cta" href="#booking" onClick={() => trackCTAClick({ place: "header" })}>
+          Забронювати дату →
+        </a>
+      </div>
     </header>
   );
 }

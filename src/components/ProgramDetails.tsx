@@ -1,7 +1,18 @@
 import { Camera, CheckCircle2, MapPinned, ShieldCheck, Sparkles, Target, UsersRound } from "lucide-react";
 import { audience, included } from "../data/content";
 
-const includeIcons = [ShieldCheck, UsersRound, Sparkles, Target, Target, CheckCircle2, MapPinned, Camera, Sparkles];
+const includeIcons = [
+  ShieldCheck,
+  UsersRound,
+  Sparkles,
+  Target,
+  Target,
+  Target,
+  CheckCircle2,
+  MapPinned,
+  Camera,
+  Sparkles,
+];
 
 export function ProgramDetails() {
   return (
@@ -14,7 +25,7 @@ export function ProgramDetails() {
             <span> у програму</span>
           </h2>
           <p>
-            Тут зібрані елементи програми за пакетами. Частина активностей входить тільки у Top / Maximum,
+            Тут зібрані елементи програми за пакетами. Частина активностей входить тільки у Топ / Максимум,
             тому під час заявки ми допоможемо підібрати формат без зайвих обіцянок.
           </p>
           <div className="included-list">
@@ -43,7 +54,7 @@ export function ProgramDetails() {
           </div>
           <p>
             Якщо не впевнені, який пакет обрати, залиште заявку. Ми підкажемо програму під вік, кількість дітей,
-            бюджет і бажану дату.
+            бюджет, бажану дату і формат локації.
           </p>
         </aside>
       </div>

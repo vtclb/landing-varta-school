@@ -5,6 +5,8 @@ const shots = [
   { name: "benefits", path: "/?shot=benefits" },
   { name: "pricing", path: "/?shot=pricing" },
   { name: "route", path: "/?shot=route" },
+  { name: "included", path: "/?shot=included" },
+  { name: "outgoing", path: "/?shot=outgoing" },
   { name: "trust", path: "/?shot=trust" },
   { name: "territory", path: "/?shot=territory" },
   { name: "faq", path: "/?shot=faq" },
@@ -31,7 +33,7 @@ test("booking form stores selected package lead in localStorage", async ({ page 
 
   const inputs = page.locator(".booking-form input");
   await inputs.nth(0).fill("Тест Клас");
-  await inputs.nth(1).fill("+380000000000");
+  await inputs.nth(1).fill("0501882003");
   await inputs.nth(2).fill("Ліцей 23, 9-Б");
   await inputs.nth(3).fill("24");
   await inputs.nth(4).fill("червень");
@@ -50,10 +52,31 @@ test("booking form stores selected package lead in localStorage", async ({ page 
       minParticipants: "від 20 учасників",
     },
     name: "Тест Клас",
-    phone: "+380000000000",
+    phone: "0501882003",
     schoolClass: "Ліцей 23, 9-Б",
     participants: "24",
     date: "червень",
     comment: "Тестова заявка",
+  });
+});
+
+test("outgoing game CTA stores selected interest in booking lead", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Обговорити виїзну гру" }).click();
+  await expect(page.locator(".booking-package-summary")).toContainText("Виїзна гра на локації замовника");
+
+  const inputs = page.locator(".booking-form input");
+  await inputs.nth(0).fill("Виїзд Тест");
+  await inputs.nth(1).fill("0501882003");
+  await page.locator(".booking-form button[type=submit]").click();
+
+  const leads = await page.evaluate(() => JSON.parse(localStorage.getItem("varta_school_leads") || "[]"));
+  expect(leads[0]).toMatchObject({
+    selectedInterest: "outgoing-game",
+    selectedPackage: {
+      id: "top",
+      name: "Топ",
+      price: "600 грн",
+    },
   });
 });

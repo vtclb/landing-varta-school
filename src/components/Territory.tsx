@@ -31,7 +31,7 @@ export function Territory() {
               className="territory-video-link"
               type="button"
               onClick={() => {
-                trackVideoOpen({ place: "territory" });
+                trackVideoOpen({ place: "tournament_example" });
                 setOpen(true);
               }}
             >
@@ -75,7 +75,7 @@ export function Territory() {
           ))}
         </div>
       </div>
-      <VideoModal open={open} url={media.youtube[1]} title="Відео з локації" onClose={() => setOpen(false)} />
+      <VideoModal open={open} url={media.youtube[1]} title="Приклад турнірного формату" onClose={() => setOpen(false)} />
     </section>
   );
 }

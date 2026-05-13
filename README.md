@@ -81,9 +81,18 @@ Prices are centralized in `src/data/content.ts`.
 Максимум — 750 грн / учасник
 ```
 
-Confirm 450 / 600 / 750 грн before launching ads.
+Before launching ads, re-check that 450 / 600 / 750 грн are still current.
 
-## Assets
+## Contacts
+
+Current visible phone:
+
+```txt
+050 188 20 03
+tel:+380501882003
+```
+
+## Assets And Context
 
 Real photos and optimized webp files live in:
 
@@ -92,6 +101,12 @@ public/assets/photos
 public/assets/optimized
 public/assets/generated
 ```
+
+Important context:
+
+- Video on the site may be used only as an example of the tournament/game format, not as proof of the main location.
+- Photos from outbound games must not be used as “Наша територія” photos.
+- Territory section should use only images that honestly show the location, game field, covers, play area, or rest zone.
 
 Do not commit `dist`, `node_modules`, `test-results`, `reports`, `backstop_data`, or temporary Chrome folders.
 
@@ -105,9 +120,9 @@ npm run test:screenshots -- --project=desktop-chrome
 
 ## Before Production Launch
 
-- Contacts: replace the placeholder phone `+380000000000` with the real number.
-- Messengers: add real Telegram, Viber, WhatsApp, Instagram and/or Facebook links where needed.
 - Prices: confirm 450 / 600 / 750 грн for `Стандарт`, `Топ`, and `Максимум`.
+- Phone: verify `050 188 20 03`.
+- Messengers: add real Telegram, Viber, WhatsApp, Instagram and/or Facebook links where needed.
 - Lead delivery: the form currently saves leads to `localStorage` under `varta_school_leads`; connect Telegram bot, Google Sheets, CRM, email, or webhook before paid traffic.
 - Analytics: wire `src/lib/analytics.ts` to GA4, Meta Pixel, and Google Ads conversions after IDs are available.
 - Ads: add Google Ads conversions if Google Ads traffic will be used.

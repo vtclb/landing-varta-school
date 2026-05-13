@@ -5,17 +5,19 @@ import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { OutgoingGames } from "./components/OutgoingGames";
 import { Pricing } from "./components/Pricing";
 import { ProgramDetails } from "./components/ProgramDetails";
 import { StickyCTA } from "./components/StickyCTA";
 import { Territory } from "./components/Territory";
 import { Trust } from "./components/Trust";
 import { useEffect, useState } from "react";
-import type { PackageId } from "./data/content";
+import type { InterestId, PackageId } from "./data/content";
 import { trackScrollDepth } from "./lib/analytics";
 
 export default function App() {
   const [selectedPackage, setSelectedPackage] = useState<PackageId>("top");
+  const [selectedInterest, setSelectedInterest] = useState<InterestId | null>(null);
   const shotTarget =
     typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("shot") : null;
 
@@ -51,12 +53,13 @@ export default function App() {
   }, []);
 
   if (shotTarget === "territory") return <Territory />;
-  if (shotTarget === "booking") return <Booking selectedPackage={selectedPackage} />;
+  if (shotTarget === "booking") return <Booking selectedPackage={selectedPackage} selectedInterest={selectedInterest} />;
   if (shotTarget === "route") return <DayRoute />;
   if (shotTarget === "benefits") return <BenefitsStrip />;
   if (shotTarget === "trust") return <Trust />;
   if (shotTarget === "pricing") return <Pricing selectedPackage={selectedPackage} onSelectPackage={setSelectedPackage} />;
   if (shotTarget === "included") return <ProgramDetails />;
+  if (shotTarget === "outgoing") return <OutgoingGames onSelectInterest={setSelectedInterest} />;
   if (shotTarget === "faq") return <FAQ />;
 
   return (
@@ -68,10 +71,11 @@ export default function App() {
         <Pricing selectedPackage={selectedPackage} onSelectPackage={setSelectedPackage} />
         <DayRoute />
         <ProgramDetails />
+        <OutgoingGames onSelectInterest={setSelectedInterest} />
         <Territory />
         <Trust />
         <FAQ />
-        <Booking selectedPackage={selectedPackage} />
+        <Booking selectedPackage={selectedPackage} selectedInterest={selectedInterest} />
       </main>
       <Footer />
       <StickyCTA />

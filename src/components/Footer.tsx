@@ -15,7 +15,7 @@ export function Footer() {
             </a>
           ))}
         </nav>
-        <a href={`tel:${contacts.phone}`}>{contacts.phone}</a>
+        <a href={contacts.phoneHref}>{contacts.phone}</a>
       </div>
     </footer>
   );
