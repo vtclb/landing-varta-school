@@ -1843,3 +1843,405 @@ body,
     min-height: 220px;
   }
 }
+
+/* Final type polish: one effective display face + one body face, with calmer poster rhythm. */
+:root {
+  --paper: #efe7d8;
+  --paper-soft: #f8f2e6;
+  --ink: #101411;
+  --muted: #5f665d;
+  --green: #073f32;
+  --green-deep: #032f26;
+  --green-muted: #174f40;
+  --yellow: #f2c313;
+  --yellow-soft: #f7d94f;
+  --line: rgba(16, 20, 17, 0.14);
+  --white: #fffaf0;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Manrope", "Inter", system-ui, sans-serif;
+  --fs-hero: clamp(48px, 7vw, 112px);
+  --fs-h2: clamp(34px, 4.4vw, 72px);
+  --fs-h3: clamp(24px, 2.4vw, 36px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --lh-tight: 0.9;
+  --lh-title: 1.02;
+  --lh-body: 1.55;
+  --tracking-tight: -0.045em;
+  --tracking-wide: 0.08em;
+  --shadow-paper: 10px 12px 0 rgba(16, 20, 17, 0.12);
+  --shadow-strong: 13px 15px 0 rgba(3, 47, 38, 0.2);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.hero-title-skew,
+.section-heading h2,
+.included-panel h2,
+.faq-intro h2,
+.route-title-block h2,
+.territory-copy h2,
+.booking-copy h2,
+.quote-copy h2,
+.outgoing-copy h2,
+.price-card h3,
+.price-card__number,
+.hero-clean-photo__caption strong,
+.paper-label,
+.site-footer strong {
+  font-family: var(--font-display) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.eyebrow,
+.hero-kicker,
+.header-nav,
+.header-phone,
+.header-cta,
+.button,
+.price-card__badge,
+.price-card__selected,
+.price-card__cta,
+.audience-tags span,
+.territory-highlights li,
+.booking-package-summary span,
+.sticky-cta a {
+  font-family: var(--font-body) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  text-transform: uppercase;
+}
+
+.hero-title-skew {
+  font-size: var(--fs-hero) !important;
+  line-height: var(--lh-tight) !important;
+  max-width: 700px !important;
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+.section-heading h2,
+.included-panel h2,
+.faq-intro h2,
+.route-title-block h2,
+.territory-copy h2,
+.booking-copy h2,
+.quote-copy h2,
+.outgoing-copy h2 {
+  font-size: var(--fs-h2) !important;
+  line-height: var(--lh-title) !important;
+  color: inherit;
+}
+
+.price-card h3,
+.audience-panel h3,
+.faq-item__question,
+.route-step h3,
+.safety-list h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-title);
+}
+
+.section-heading p,
+.hero-poster__subtitle,
+.route-subtitle,
+.included-panel > p,
+.audience-panel > p,
+.territory-copy p,
+.outgoing-copy p,
+.faq-intro p,
+.booking-copy p,
+.price-card__best,
+.faq-item__answer {
+  color: var(--muted) !important;
+  line-height: var(--lh-body) !important;
+}
+
+.quote-copy p,
+.included-panel > p,
+.booking-copy p {
+  color: rgba(255, 250, 240, 0.82) !important;
+}
+
+.button,
+.header-cta,
+.price-card__cta,
+.territory-video-link,
+.outgoing-cta {
+  min-height: 48px;
+  border-radius: 0 !important;
+  box-shadow: 7px 8px 0 rgba(16, 20, 17, 0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.header-cta:hover,
+.price-card__cta:hover,
+.territory-video-link:hover,
+.outgoing-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 9px 10px 0 rgba(16, 20, 17, 0.2);
+}
+
+.button:active,
+.header-cta:active,
+.price-card__cta:active,
+.territory-video-link:active,
+.outgoing-cta:active {
+  transform: translateY(2px);
+  box-shadow: 4px 5px 0 rgba(16, 20, 17, 0.2);
+}
+
+.button svg,
+.header-cta svg,
+.price-card__cta svg,
+.outgoing-cta svg {
+  transition: transform 160ms ease;
+}
+
+.button:hover svg,
+.header-cta:hover svg,
+.price-card__cta:hover svg,
+.outgoing-cta:hover svg {
+  transform: translateX(4px);
+}
+
+.hero-poster--clean {
+  background:
+    radial-gradient(circle at 82% 12%, rgba(242, 195, 19, 0.14), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 250, 240, 0.22), transparent 42%),
+    var(--paper) !important;
+}
+
+.hero-kicker,
+.price-card__selected,
+.audience-tags span,
+.territory-highlights li {
+  border-radius: 0 !important;
+}
+
+.hero-clean-photo__image {
+  border-width: 3px;
+  box-shadow: var(--shadow-strong);
+}
+
+.hero-clean-photo__image img,
+.outgoing-photo img,
+.panorama img,
+.polaroid img {
+  transition: transform 280ms ease, filter 280ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-clean-photo__image:hover img,
+  .outgoing-photo:hover img,
+  .panorama:hover img,
+  .polaroid:hover img {
+    transform: scale(1.035);
+    filter: saturate(1.03) contrast(1.03);
+  }
+}
+
+.price-card {
+  min-height: 540px;
+  padding: 26px 22px 24px;
+  border-color: rgba(16, 20, 17, 0.72) !important;
+  box-shadow: var(--shadow-paper) !important;
+}
+
+.price-card::before {
+  opacity: 0.82;
+}
+
+.price-card::after {
+  opacity: 0.58;
+}
+
+.price-card__number {
+  color: var(--yellow);
+  font-size: clamp(2.1rem, 3.2vw, 3.15rem) !important;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.price-card__badge {
+  background: var(--green-deep) !important;
+  color: var(--white) !important;
+  font-size: 0.74rem !important;
+  box-shadow: 4px 5px 0 rgba(16, 20, 17, 0.14);
+}
+
+.price-card h3 {
+  margin-top: 16px;
+  color: var(--ink);
+}
+
+.price-card__price {
+  color: var(--green-deep);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+}
+
+.price-card__selected {
+  background: url("../../public/assets/generated/paper-label-rough.svg") center / 100% 100% no-repeat;
+  box-shadow: 5px 6px 0 rgba(16, 20, 17, 0.11);
+}
+
+.price-card--selected {
+  outline: 3px solid var(--yellow);
+  outline-offset: 5px;
+}
+
+.route-step {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, 0.94), rgba(248, 242, 230, 0.98)),
+    url("../../public/assets/generated/grain-overlay.svg") !important;
+  border: 1px solid var(--line);
+}
+
+.route-step p {
+  color: var(--muted);
+}
+
+.route-number {
+  font-family: var(--font-body) !important;
+  font-weight: 950;
+}
+
+.territory-section .panorama,
+.territory-section .polaroid figure,
+.outgoing-photo,
+.hero-clean-photo__image {
+  border-radius: 0 !important;
+}
+
+.booking-section {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(242, 195, 19, 0.16), transparent 22rem),
+    var(--green-deep) !important;
+}
+
+.booking-form {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, 0.95), rgba(248, 242, 230, 0.98)),
+    url("../../public/assets/generated/grain-overlay.svg") !important;
+  border: 2px solid rgba(16, 20, 17, 0.18);
+  box-shadow: 14px 16px 0 rgba(16, 20, 17, 0.18);
+}
+
+.booking-package-summary {
+  background: var(--green-deep);
+  border-color: rgba(16, 20, 17, 0.22);
+  color: var(--white);
+}
+
+.booking-package-summary strong {
+  color: var(--yellow);
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25;
+}
+
+.faq-item {
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.faq-item:hover,
+.faq-item:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 8px 9px 0 rgba(16, 20, 17, 0.13);
+}
+
+.faq-item__answer {
+  transition: opacity 160ms ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+@media (width <= 768px) {
+  .hero-title-skew {
+    font-size: clamp(3rem, 12.5vw, 4.25rem) !important;
+    max-width: 100% !important;
+    transform: rotate(-1.5deg) skewX(-2deg) scaleX(0.96) !important;
+  }
+
+  .section-heading h2,
+  .included-panel h2,
+  .faq-intro h2,
+  .route-title-block h2,
+  .territory-copy h2,
+  .booking-copy h2,
+  .quote-copy h2,
+  .outgoing-copy h2 {
+    font-size: clamp(2.2rem, 10.5vw, 3.35rem) !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .price-card,
+  .price-card:nth-child(1),
+  .price-card:nth-child(2),
+  .price-card:nth-child(3),
+  .price-card--selected,
+  .audience-panel,
+  .outgoing-photo,
+  .hero-clean-photo__image {
+    transform: none !important;
+  }
+
+  .price-card {
+    min-height: 0;
+    padding: 22px 18px;
+  }
+
+  .booking-form {
+    box-shadow: 8px 10px 0 rgba(16, 20, 17, 0.14);
+  }
+}
+
+@media (width <= 430px) {
+  body,
+  button,
+  input,
+  textarea,
+  select {
+    font-size: 15.5px;
+  }
+
+  .hero-title-skew {
+    font-size: clamp(2.72rem, 12vw, 3.35rem) !important;
+    line-height: 0.94 !important;
+  }
+
+  .hero-clean-photo__caption {
+    width: 94%;
+  }
+
+  .price-card__meta,
+  .outgoing-list,
+  .included-list,
+  .reassurance {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
