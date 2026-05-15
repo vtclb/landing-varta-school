@@ -16,9 +16,9 @@ const shots = [
 test.describe("landing screenshots", () => {
   for (const shot of shots) {
     test(`${shot.name} screenshot`, async ({ page }, testInfo) => {
-      await page.goto(shot.path);
-      await page.waitForLoadState("networkidle");
+      await page.goto(shot.path, { waitUntil: "domcontentloaded" });
       await expect(page.locator("body")).toBeVisible();
+      await page.waitForTimeout(600);
       await page.screenshot({
         path: `test-results/screenshots/${testInfo.project.name}-${shot.name}.png`,
         fullPage: false,

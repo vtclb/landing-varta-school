@@ -71,16 +71,26 @@ async function checkOverflow(width, height = 900) {
 }
 
 async function captureSection(page, selector, fileName) {
-  await page.locator(selector).scrollIntoViewIfNeeded();
+  await page.evaluate((sectionSelector) => {
+    document.querySelector(sectionSelector)?.scrollIntoView({ block: "start", inline: "nearest" });
+  }, selector);
   await page.waitForTimeout(450);
   await page.screenshot({ path: path.join(outDir, fileName), fullPage: false });
+}
+
+async function captureShot(browserInstance, shot, fileName, viewport) {
+  const page = await browserInstance.newPage({ viewport, deviceScaleFactor: 1, isMobile: viewport.width < 800 });
+  await page.goto(`${baseUrl}?shot=${shot}`, { waitUntil: "networkidle" });
+  await page.waitForTimeout(650);
+  await page.screenshot({ path: path.join(outDir, fileName), fullPage: false });
+  await page.close();
 }
 
 const desktop = await browser.newPage({ viewport: { width: 1440, height: 950 }, deviceScaleFactor: 1 });
 await desktop.goto(baseUrl, { waitUntil: "networkidle" });
 await desktop.waitForTimeout(650);
 await desktop.screenshot({ path: path.join(outDir, "type-polish-hero-1440.png"), fullPage: false });
-await captureSection(desktop, "#pricing", "type-polish-pricing-1440.png");
+await captureShot(browser, "pricing", "type-polish-pricing-1440.png", { width: 1440, height: 950 });
 await desktop.screenshot({ path: path.join(outDir, "type-polish-full-page-1440.png"), fullPage: true });
 await desktop.close();
 
@@ -88,11 +98,12 @@ const mobile = await browser.newPage({ viewport: { width: 390, height: 900 }, de
 await mobile.goto(baseUrl, { waitUntil: "networkidle" });
 await mobile.waitForTimeout(650);
 await mobile.screenshot({ path: path.join(outDir, "type-polish-mobile-hero-390.png"), fullPage: false });
-await captureSection(mobile, "#pricing", "type-polish-mobile-pricing-390.png");
-await captureSection(mobile, "#route", "type-polish-route-390.png");
-await captureSection(mobile, "#territory", "type-polish-territory-390.png");
-await captureSection(mobile, "#booking", "type-polish-booking-390.png");
 await mobile.close();
+
+await captureShot(browser, "pricing", "type-polish-mobile-pricing-390.png", { width: 390, height: 900 });
+await captureShot(browser, "route", "type-polish-route-390.png", { width: 390, height: 900 });
+await captureShot(browser, "territory", "type-polish-territory-390.png", { width: 390, height: 900 });
+await captureShot(browser, "booking", "type-polish-booking-390.png", { width: 390, height: 900 });
 
 const overflow = [];
 for (const width of [360, 375, 390, 430, 768]) overflow.push(await checkOverflow(width));
